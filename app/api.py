@@ -10,17 +10,17 @@ questions = [{
 }]
 
 
-@app.route('/', methods=['GET'])
+@app.route('/api/v1', methods=['GET'])
 def home():
     return jsonify({'message': 'It works'})
 
-
-@app.route('/questions', methods=['GET'])
+# return all questions endpoint
+@app.route('/api/v1/questions', methods=['GET'])
 def fetch_all():
-    pass
+    return jsonify({'questions': questions})
 
 
-@app.route('/question/<int:questionId>', methods=['GET'])
+@app.route('/api/v1/question/<int:questionId>', methods=['GET'])
 def fetch_one(questionId):
     pass
 
