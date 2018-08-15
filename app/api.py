@@ -37,5 +37,14 @@ def not_found(error):
     return make_response(jsonify({'error':'Question not found'}), 404)
 
 
+@app.errorhandler(404)
+def bad_request(error):
+    return make_response(jsonify({'error': 'Please make sure that all fields are filled'}), 400)
+
+@app.route('/api/v1/question', methods=['POST'])
+def post_question():
+    pass
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
