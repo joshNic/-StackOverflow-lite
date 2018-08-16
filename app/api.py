@@ -53,6 +53,10 @@ def post_question():
     questions.append(question)
     return jsonify({'question': question}), 201
 
+@app.route('/api/v1/answer', methods=['POST'])
+def post_answer():
+    pass
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
