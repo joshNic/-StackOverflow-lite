@@ -28,3 +28,13 @@ def test_fetch_single_question(setup_mockdb):
     assert setup_mockdb.fetch_single_question(2)['question']['questionId'] == 2
     with pytest.raises(Exception):
         setup_mockdb.fetch_single_question(3)
+
+
+def test_add_question(make_response_post_question, setup_mockdb):
+    assert make_response_post_question.json != setup_mockdb.add_question()
+    assert isinstance(setup_mockdb.add_question(), dict)
+    assert setup_mockdb.add_question() != {'question': QUESTIONS}
+    assert len(setup_mockdb.add_question()) == 1
+    assert len(setup_mockdb.add_question()['question']) > 2
+    with pytest.raises(Exception):
+        setup_mockdb.add_question(2)
