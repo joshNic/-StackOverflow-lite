@@ -36,17 +36,17 @@ ANSWERS = [{
 
 
 class MockDBHelper(object):
-    
+
     def fetch_all_questions(self):
         return {'questions': QUESTIONS}
-    
+
     def fetch_single_question(self, questionId):
         question = [
             question for question in QUESTIONS if question['questionId'] == questionId]
         if len(question) == 0:
             abort(404)
         return {'question': question[0]}
-    
+
     def add_question(self):
         if not request.json or not 'title' in request.json or not 'body' in request.json:
             abort(400)
@@ -57,7 +57,7 @@ class MockDBHelper(object):
         }
         QUESTIONS.append(question)
         return {'question': QUESTIONS}
-    
+
     def add_answer(self, questionId):
         question = [
             question for question in QUESTIONS if question['questionId'] == questionId]
@@ -73,6 +73,3 @@ class MockDBHelper(object):
             }
             ANSWERS.append(answer)
         return {'answer': ANSWERS}
-    
-        
-    
