@@ -7,3 +7,18 @@ def app():
     app = create_app()
     app.debug = True
     return app
+
+
+@pytest.fixture
+def make_response_post_question(client):
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype
+    }
+    data = {
+        'title': 'what does 404 mean',
+        'body': 'Means resoce not found'
+    }
+    url = '/api/v1/question'
+    response = client.post(url, data=json.dumps(data), headers=headers)
+    yield response
