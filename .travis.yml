@@ -2,24 +2,13 @@ language: python
 python:
   - "3.4"
 # command to install dependencies
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
 install:
   - "pip install -r requirements.txt"
-services:
-  - redis-server
-env:
-  global:
-    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
-    - CC_TEST_REPORTER_ID=f6e080cb4eab8e1a8e65c1d85438cb0fd5c7d4bd106987af68371ea57b801398
-
 # command to run tests
 script:
    - py.test --cov-report= --cov=tests/
    - coverage report
 
+
 after_success:
 - coveralls
-
-
