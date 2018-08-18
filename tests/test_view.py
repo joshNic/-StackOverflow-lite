@@ -18,3 +18,9 @@ def test_fetch_one(make_response_get_question, make_not_found):
     assert make_not_found.status_code == 404
     assert data['question']['title'] == "What does Error 400 mean"
     assert len(data['question']) == 3
+
+
+def test_post_question(make_response_post_question, make_bad_request):
+    assert make_response_post_question.status_code == 201
+    assert make_response_post_question.json
+    assert make_bad_request.status_code == 400
