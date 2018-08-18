@@ -38,3 +38,10 @@ def test_bad_request(make_bad_request):
     assert make_bad_request.status_code == 400
     assert make_bad_request.json
     assert data['error'] == 'Bad request check information again'
+
+
+def test_not_found(make_not_found):
+    data = json.loads(json.dumps(make_not_found.json))
+    assert make_not_found.status_code == 404
+    assert make_not_found.json
+    assert data['error'] == 'Question not found'
