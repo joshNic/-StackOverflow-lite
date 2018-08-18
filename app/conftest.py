@@ -22,3 +22,14 @@ def make_response_post_question(client):
     url = '/api/v1/question'
     response = client.post(url, data=json.dumps(data), headers=headers)
     yield response
+
+
+@pytest.fixture
+def make_response_get_question(client):
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype
+    }
+    url = '/api/v1/question/2'
+    response = client.get(url, headers=headers)
+    yield response
