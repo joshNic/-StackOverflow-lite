@@ -20,3 +20,11 @@ def test_fetch_all_questions(setup_mockdb):
     assert setup_mockdb.fetch_all_questions(
     )['questions'][0]['title'] == "What is does Error 404 mean"
     assert isinstance(setup_mockdb.fetch_all_questions(), dict)
+
+
+def test_fetch_single_question(setup_mockdb):
+    assert isinstance(setup_mockdb.fetch_single_question(2), dict)
+    assert len(setup_mockdb.fetch_single_question(2)) == 1
+    assert setup_mockdb.fetch_single_question(2)['question']['questionId'] == 2
+    with pytest.raises(Exception):
+        setup_mockdb.fetch_single_question(3)
