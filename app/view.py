@@ -1,37 +1,35 @@
 from flask import Flask, jsonify, make_response
-from mockdbhelper import MockDBHelper
+from .mockdbhelper import MockDBHelper
 
-qObject = MockDBHelper()
-app = Flask(__name__)
+def create_app():
+    qObject = MockDBHelper()
+    app = Flask(__name__)
 
-# return all questions endpoint
-@app.route('/api/v1/questions', methods=['GET'])
-def fetch_all():
-    return jsonify(qObject.fetch_all_questions())
+    # return all questions endpoint
+    @app.route('/api/v1/questions', methods=['GET'])
+    def fetch_all():
+        return jsonify(qObject.fetch_all_questions())
 
-# get single question endpoint
-@app.route('/api/v1/question/<int:questionId>', methods=['GET'])
-def fetch_one(questionId):
-    return jsonify(qObject.fetch_single_question(questionId))
+    # get single question endpoint
+    @app.route('/api/v1/question/<int:questionId>', methods=['GET'])
+    def fetch_one(questionId):
+        return jsonify(qObject.fetch_single_question(questionId))
 
-@app.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({'error': 'Question not found'}), 404)
+    @app.errorhandler(404)
+    def not_found(error):
+        return make_response(jsonify({'error': 'Question not found'}), 404)
 
+    @app.errorhandler(400)
+    def bad_request(error):
+        return make_response(jsonify({"error": "Bad request check information again"}), 400)
 
-@app.errorhandler(400)
-def bad_request(error):
-    return make_response(jsonify({'error': 'Bad request check information again'}), 400)
+    # get post question endpoint
+    @app.route('/api/v1/question', methods=['POST'])
+    def post_question():
+        return jsonify(qObject.add_question()), 201
 
-# get post question endpoint
-@app.route('/api/v1/question', methods=['POST'])
-def post_question():
-    return jsonify(qObject.add_question()), 201
-
-# get post answer endpoint
-@app.route('/api/v1/answer/<int:questionId>', methods=['POST'])
-def add_answer(questionId):
-    return jsonify(qObject.add_question()), 201
-
-if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    # get post answer endpoint
+    @app.route('/api/v1/question/<int:questionId>/answer', methods=['POST'])
+    def add_answer(questionId):
+        return jsonify(qObject.add_answer(questionId)), 201
+    return app
