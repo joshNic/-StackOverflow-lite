@@ -33,3 +33,9 @@ def make_response_get_question(client):
     url = '/api/v1/question/2'
     response = client.get(url, headers=headers)
     yield response
+
+
+@pytest.fixture
+def setup_mockdb(scope="module"):
+    mockObject = MockDBHelper()
+    yield mockObject
