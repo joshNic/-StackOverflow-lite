@@ -38,3 +38,15 @@ def test_add_question(make_response_post_question, setup_mockdb):
     assert len(setup_mockdb.add_question()['question']) > 2
     with pytest.raises(Exception):
         setup_mockdb.add_question(2)
+
+
+def test_add_answer(make_response_post_answer, setup_mockdb):
+    with pytest.raises(Exception):
+        setup_mockdb.add_answer()
+    with pytest.raises(Exception):
+        setup_mockdb.add_answer(20)
+    assert make_response_post_answer.json != setup_mockdb.add_answer(2)
+    assert len(setup_mockdb.add_answer(2)['answer']) > 2
+    assert len(setup_mockdb.add_answer(2)) == 1
+    assert isinstance(setup_mockdb.add_answer(2), dict)
+    assert make_response_post_answer.json != setup_mockdb.add_answer(2)
