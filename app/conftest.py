@@ -65,3 +65,17 @@ def make_response_post_answer(client):
     url = '/api/v1/question/1/answer'
     response = client.post(url, data=json.dumps(data), headers=headers)
     yield response
+
+
+@pytest.fixture
+def make_bad_request(client):
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype
+    }
+    data = {
+        'answer_body': 'Means resources you look for not availbale not found'
+    }
+    url = '/api/v1/question/2/answer'
+    response = client.post(url, data=data, headers=headers)
+    yield response
