@@ -31,3 +31,10 @@ def test_add_answer(make_response_post_answer, make_bad_request, make_not_found)
     assert make_response_post_answer.json
     assert make_bad_request.status_code == 400
     assert make_not_found.status_code == 404
+
+
+def test_bad_request(make_bad_request):
+    data = json.loads(json.dumps(make_bad_request.json))
+    assert make_bad_request.status_code == 400
+    assert make_bad_request.json
+    assert data['error'] == 'Bad request check information again'
