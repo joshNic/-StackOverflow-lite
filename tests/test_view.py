@@ -24,3 +24,10 @@ def test_post_question(make_response_post_question, make_bad_request):
     assert make_response_post_question.status_code == 201
     assert make_response_post_question.json
     assert make_bad_request.status_code == 400
+
+
+def test_add_answer(make_response_post_answer, make_bad_request, make_not_found):
+    assert make_response_post_answer.status_code == 201
+    assert make_response_post_answer.json
+    assert make_bad_request.status_code == 400
+    assert make_not_found.status_code == 404
