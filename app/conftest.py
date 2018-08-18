@@ -1,3 +1,4 @@
+from app.mockdbhelper import MockDBHelper
 import pytest
 from app.view import create_app
 import json
@@ -39,3 +40,14 @@ def make_response_get_question(client):
 def setup_mockdb(scope="module"):
     mockObject = MockDBHelper()
     yield mockObject
+
+
+@pytest.fixture
+def make_response_get_questions(client):
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype
+    }
+    url = '/api/v1/questions'
+    response = client.get(url, headers=headers)
+    yield response
