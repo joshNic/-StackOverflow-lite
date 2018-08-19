@@ -2,7 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/joshNic/Stack0verflow-lite/badge.svg)](https://coveralls.io/github/joshNic/Stack0verflow-lite)
 [![Build Status](https://travis-ci.org/joshNic/Stack0verflow-lite.svg?branch=tests)](https://travis-ci.org/joshNic/Stack0verflow-lite)
-StackOverflow-lite is a platform where people can ask questions and provide answers.
+
+- StackOverflow-lite is a platform where people can ask questions and provide answers.
 
 - This branch contains API endpoints for the above application and tests
 
@@ -50,3 +51,6 @@ $ Run the server At the terminal or console type
 
 ## Contributors
 - [Joshua Mugisha](https://github.com/joshNic)
+
+## Documentation
+- The API is documented [HERE](https://stackv1.docs.apiary.io/#)

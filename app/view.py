@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, url_for, redirect
 from .mockdbhelper import MockDBHelper
 
 def create_app():
@@ -6,6 +6,10 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config['TESTING'] = True
     app.config['DEBUG'] = True
+
+    # @app.route('/')
+    # def index():
+    #     return redirect('https://stackv1.docs.apiary.io/#')
     
     # return all questions endpoint
     @app.route('/api/v1/questions', methods=['GET'])
