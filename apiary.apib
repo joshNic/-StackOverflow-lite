@@ -1,0 +1,68 @@
+FORMAT: 1A
+HOST: https://stack-mj45.herokuapp.com/api/v1
+
+# StackV1
+
+StackV1 is a simple API allowing users ask questions and get answers.
+
+## Questions Collection [/questions]
+A Question object has the following attributes:
++ questionId.
++ title.
++ body.
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+        
+            {
+                "questionId":1,
+                "title" : "What does 404 mean",
+                "body": "So i came across this and i dont know what it means"
+            }
+
+## Question [/question/{questionId}]
++ Parameters
+    + questionId: 1 (required, number) - ID of the Question in form of an integer
+
+### Retrieve a Question [GET]
+
++ Response 200 (application/json)
+
+        
+            {
+                "questionId":2,
+                "title" : "What does 404 mean",
+                "body": "I have this application which always returns this error please help"
+            }
+
+## Questions Creation [/question]
+
+### Create a New Question [POST]
+You may create your own question using this action. It takes a JSON
+object containing a question title and a question descripition inform of a body .
+
++ Request (application/json)
+
+        {
+            "title": "Favourite does C++ mean",
+            "body": "Guys i have no idea what C++ means and yet people talk about it alot" 
+        }
++ Response 201 (application/json)
+
+## Answer Creation [/question/{questionId}/answer]
++ Parameters
+    + questionId: 1 (required, number) - ID of the Question in form of an integer
+
+### Create a New Question [POST]
+You may create your answers to questions using this action. It takes a JSON
+object containing an answer body .
+
++ Request (application/json)
+
+        {
+            "answer_body": "Guys i have no idea what C++ means and yet people talk about it alot" 
+        }
+
++ Response 201 (application/json)
