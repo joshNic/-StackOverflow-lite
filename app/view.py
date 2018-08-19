@@ -3,7 +3,9 @@ from .mockdbhelper import MockDBHelper
 
 def create_app():
     qObject = MockDBHelper()
-    app = Flask(__name__)
+    app = Flask(__name__, instance_relative_config=True)
+    app.config['TESTING'] = True
+    app.config['DEBUG'] = True
     
     # return all questions endpoint
     @app.route('/api/v1/questions', methods=['GET'])
