@@ -1,0 +1,94 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'husky@beta' ]
+2 info using npm@2.15.11
+3 info using node@v4.9.1
+4 verbose install initial load of /home/phoenix/Stackoverflow-lite/package.json
+5 verbose readDependencies loading dependencies from /home/phoenix/Stackoverflow-lite/package.json
+6 silly cache add args [ 'husky@beta', null ]
+7 verbose cache add spec husky@beta
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'husky@beta',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'husky',
+8 silly cache add   rawSpec: 'beta',
+8 silly cache add   spec: 'beta',
+8 silly cache add   type: 'tag' }
+9 silly addNamed husky@beta
+10 verbose addNamed "beta" is being treated as a dist-tag for husky
+11 info addNameTag [ 'husky', 'beta' ]
+12 silly mapToRegistry name husky
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'husky',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'husky',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/husky
+17 verbose addNameTag registry:https://registry.npmjs.org/husky not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/husky
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 4:23:30 PM
+21 verbose request id 9a44535f0350a60e
+22 http request GET https://registry.npmjs.org/husky
+23 http 200 https://registry.npmjs.org/husky
+24 verbose headers { date: 'Sun, 19 Aug 2018 13:23:34 GMT',
+24 verbose headers   'content-type': 'application/json; charset=UTF-8',
+24 verbose headers   'transfer-encoding': 'chunked',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'set-cookie': [ '__cfduid=d5ae9876a3b97f3b1cd087684dfb5e16b1534685014; expires=Mon, 19-Aug-19 13:23:34 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+24 verbose headers   'cf-cache-status': 'HIT',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'cf-ray': '44ccef7b2d207a35-DXB',
+24 verbose headers   etag: 'W/"cf780560e675772bed80f17d23761ded"',
+24 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+24 verbose headers   'last-modified': 'Thu, 02 Aug 2018 09:53:14 GMT',
+24 verbose headers   vary: 'accept-encoding, accept',
+24 verbose headers   server: 'cloudflare',
+24 verbose headers   'content-encoding': 'gzip' }
+25 silly get cb [ 200,
+25 silly get   { date: 'Sun, 19 Aug 2018 13:23:34 GMT',
+25 silly get     'content-type': 'application/json; charset=UTF-8',
+25 silly get     'transfer-encoding': 'chunked',
+25 silly get     connection: 'keep-alive',
+25 silly get     'set-cookie': [ '__cfduid=d5ae9876a3b97f3b1cd087684dfb5e16b1534685014; expires=Mon, 19-Aug-19 13:23:34 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+25 silly get     'cf-cache-status': 'HIT',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'cf-ray': '44ccef7b2d207a35-DXB',
+25 silly get     etag: 'W/"cf780560e675772bed80f17d23761ded"',
+25 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+25 silly get     'last-modified': 'Thu, 02 Aug 2018 09:53:14 GMT',
+25 silly get     vary: 'accept-encoding, accept',
+25 silly get     server: 'cloudflare',
+25 silly get     'content-encoding': 'gzip' } ]
+26 verbose get saving husky to /home/phoenix/.npm/registry.npmjs.org/husky/.cache.json
+27 verbose correctMkdir /home/phoenix/.npm correctMkdir not in flight; initializing
+28 silly addNameTag next cb for husky with tag beta
+29 verbose stack Error: No compatible version found: husky@'beta'
+29 verbose stack Valid install targets:
+29 verbose stack ["0.4.0","0.4.1","0.4.2","0.4.3","0.5.0","0.5.1","0.5.2","0.5.3","0.5.4","0.6.0","0.6.1","0.6.2","0.7.0","0.8.0","0.8.1","0.9.0","0.9.1","0.9.2","0.9.3","0.10.0","0.10.1","0.10.2","0.11.0","0.11.1","0.11.2","0.11.3","0.11.4","0.11.5","0.11.6","0.11.7","0.11.8","0.11.9","0.12.0-0","0.12.0-1","0.12.0-2","0.12.0","0.13.0-0","0.13.0-1","0.13.0","0.13.1","0.13.2","0.13.3-0","0.13.3","0.13.4","0.14.0-0","0.14.0-1","0.14.0","0.14.1-0","0.14.1-1","0.14.1-2","0.14.1","0.14.2","0.14.3","0.15.0-beta.0","0.15.0-beta.1","0.15.0-beta.2","0.15.0-beta.3","0.15.0-beta.4","0.15.0-beta.5","0.15.0-beta.6","0.15.0-beta.7","0.15.0-beta.8","0.15.0-beta.9","0.15.0-beta.10","0.15.0-beta.11","0.15.0-beta.12","0.15.0-beta.13","0.15.0-beta.14","0.15.0-beta.15","0.15.0-beta.16","0.15.0-rc.1","0.15.0-rc.2","0.15.0-rc.3","0.15.0-rc.4","0.15.0-rc.5","0.15.0-rc.6","0.15.0-rc.7","0.15.0-rc.8","0.15.0-rc.9","0.15.0-rc.10","0.15.0-rc.11","0.15.0-rc.12","0.15.0-rc.13","1.0.0-rc.1","1.0.0-rc.2","1.0.0-rc.3","1.0.0-rc.4","1.0.0-rc.5","1.0.0-rc.6","1.0.0-rc.7","1.0.0-rc.8","1.0.0-rc.9","1.0.0-rc.10","1.0.0-rc.11","1.0.0-rc.12","1.0.0-rc.13"]
+29 verbose stack
+29 verbose stack     at installTargetsError (/usr/lib/node_modules/npm/lib/cache/add-named.js:284:12)
+29 verbose stack     at next (/usr/lib/node_modules/npm/lib/cache/add-named.js:94:10)
+29 verbose stack     at RES (/usr/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+29 verbose stack     at f (/usr/lib/node_modules/npm/node_modules/once/once.js:25:25)
+29 verbose stack     at fixName (/usr/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+29 verbose stack     at saved (/usr/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+29 verbose stack     at /usr/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:233:18
+29 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+30 verbose cwd /home/phoenix/Stackoverflow-lite
+31 error Linux 4.4.0-133-generic
+32 error argv "/usr/bin/node" "/usr/bin/npm" "install" "husky@beta"
+33 error node v4.9.1
+34 error npm  v2.15.11
+35 error code ETARGET
+36 error notarget No compatible version found: husky@'beta'
+36 error notarget Valid install targets:
+36 error notarget ["0.4.0","0.4.1","0.4.2","0.4.3","0.5.0","0.5.1","0.5.2","0.5.3","0.5.4","0.6.0","0.6.1","0.6.2","0.7.0","0.8.0","0.8.1","0.9.0","0.9.1","0.9.2","0.9.3","0.10.0","0.10.1","0.10.2","0.11.0","0.11.1","0.11.2","0.11.3","0.11.4","0.11.5","0.11.6","0.11.7","0.11.8","0.11.9","0.12.0-0","0.12.0-1","0.12.0-2","0.12.0","0.13.0-0","0.13.0-1","0.13.0","0.13.1","0.13.2","0.13.3-0","0.13.3","0.13.4","0.14.0-0","0.14.0-1","0.14.0","0.14.1-0","0.14.1-1","0.14.1-2","0.14.1","0.14.2","0.14.3","0.15.0-beta.0","0.15.0-beta.1","0.15.0-beta.2","0.15.0-beta.3","0.15.0-beta.4","0.15.0-beta.5","0.15.0-beta.6","0.15.0-beta.7","0.15.0-beta.8","0.15.0-beta.9","0.15.0-beta.10","0.15.0-beta.11","0.15.0-beta.12","0.15.0-beta.13","0.15.0-beta.14","0.15.0-beta.15","0.15.0-beta.16","0.15.0-rc.1","0.15.0-rc.2","0.15.0-rc.3","0.15.0-rc.4","0.15.0-rc.5","0.15.0-rc.6","0.15.0-rc.7","0.15.0-rc.8","0.15.0-rc.9","0.15.0-rc.10","0.15.0-rc.11","0.15.0-rc.12","0.15.0-rc.13","1.0.0-rc.1","1.0.0-rc.2","1.0.0-rc.3","1.0.0-rc.4","1.0.0-rc.5","1.0.0-rc.6","1.0.0-rc.7","1.0.0-rc.8","1.0.0-rc.9","1.0.0-rc.10","1.0.0-rc.11","1.0.0-rc.12","1.0.0-rc.13"]
+36 error notarget
+36 error notarget This is most likely not a problem with npm itself.
+36 error notarget In most cases you or one of your dependencies are requesting
+36 error notarget a package version that doesn't exist.
+37 verbose exit [ 1, true ]
