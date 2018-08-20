@@ -7,9 +7,9 @@ def create_app():
     app.config['TESTING'] = True
     app.config['DEBUG'] = True
 
-    # @app.route('/')
-    # def index():
-    #     return redirect('https://stackv1.docs.apiary.io/#')
+    @app.route('/')
+    def index():
+        return redirect('https://stackv1.docs.apiary.io/#')
     
     # return all questions endpoint
     @app.route('/api/v1/questions', methods=['GET'])
