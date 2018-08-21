@@ -6,3 +6,6 @@ app/__pycache__/
 .idea/
 *.log
 .coverage
+htmlcov/*
+test_pyth.py
+*.coverage

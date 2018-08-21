@@ -1,13 +1,15 @@
 import pytest
-from app.view import create_app
+from app.view import app as create_app
 import json
+
 
 @pytest.fixture
 def app():
-    app = create_app()
+    app = create_app
     app.debug = True
     return app
-    
+
+
 @pytest.fixture
 def make_response_post_question(client):
     mimetype = 'application/json'
@@ -22,6 +24,7 @@ def make_response_post_question(client):
     response = client.post(url, data=json.dumps(data), headers=headers)
     yield response
 
+
 @pytest.fixture
 def make_response_get_question(client):
     mimetype = 'application/json'
@@ -32,6 +35,7 @@ def make_response_get_question(client):
     response = client.get(url, headers=headers)
     yield response
 
+
 @pytest.fixture
 def make_response_get_questions(client):
     mimetype = 'application/json'
@@ -41,6 +45,7 @@ def make_response_get_questions(client):
     url = '/api/v1/questions'
     response = client.get(url, headers=headers)
     yield response
+
 
 @pytest.fixture
 def make_response_post_answer(client):
