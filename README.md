@@ -49,6 +49,48 @@ $ Run the server At the terminal or console type
 |     GET  api/v1/questions         |            Get all Questions          |
 
 
+## End Points Reponse structure
+# Get Questions Endpoint Response Structure
+```
+Response 200 (application/json)
+{
+    "questionId":1,
+    "title" : "What does 404 mean",
+    "body": "So i came across this and i dont know what it means"
+}
+```
+# Get single Questions Endpoint Response Structure
+```
++ Parameters
+    + questionId:__(required, number) - ID of the Question in form of an integer
+Response 200 (application/json)
+{
+    "questionId":{questionId},
+    "title" : "What does 404 mean",
+    "body": "So i came across this and i dont know what it means"
+}
+```
+# Post Questions Endpoint Response Structure
+```
+Response 201 (application/json)
+body
+    {
+        "title" : "What does 404 mean",
+        "body": "So i came across this and i dont know what it means"
+    }
+```
+
+# Post Answer Endpoint Response Structure
+```
++ Parameters
+    + questionId:__(required, number) - ID of the Question you are answering in form of an integer
+Response 201 (application/json)
+body
+    {
+        "answer_body": "So i came across this and i dont know what it means"
+    }
+```
+
 ## Contributors
 - [Joshua Mugisha](https://github.com/joshNic)
 
