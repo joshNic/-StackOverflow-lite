@@ -10,3 +10,4 @@ htmlcov/*
 test_pyth.py
 *.coverage
 *.cache/
+*.pyc
