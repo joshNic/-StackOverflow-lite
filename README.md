@@ -98,4 +98,4 @@ body
 - The API is documented[HERE](https://stackv1.docs.apiary.io/#)
 
 # Heroku
-- The API is hosted [HERE](https://stack-mj45.herokuapp.com)
+- The API is hosted[HERE](https://stack-mj45.herokuapp.com)
