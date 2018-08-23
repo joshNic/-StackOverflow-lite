@@ -1,5 +1,5 @@
 import pytest
-from app.view import app as create_app
+from app.views import app as create_app
 import json
 
 
@@ -85,5 +85,26 @@ def make_not_found(client):
         'answer_body': 'Means resources you look for not availbale not found'
     }
     url = '/api/v1/question/90/answer'
+    response = client.post(url, data=json.dumps(data), headers=headers)
+    yield response
+
+
+@pytest.fixture
+def home_response(client):
+    url = '/'
+    response = client.get(url)
+    yield response
+
+
+@pytest.fixture
+def validate_response(client):
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype
+    }
+    data = {
+        'answer_body': 'Means resources you look for not availbale not found'
+    }
+    url = '/api/v1/question/3/answer'
     response = client.post(url, data=json.dumps(data), headers=headers)
     yield response
