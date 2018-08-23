@@ -1,5 +1,4 @@
 # StackOverflow-lite
-
 [![Coverage Status](https://coveralls.io/repos/github/joshNic/Stack0verflow-lite/badge.svg)](https://coveralls.io/github/joshNic/Stack0verflow-lite)
 [![Build Status](https://travis-ci.org/joshNic/Stack0verflow-lite.svg?branch=tests)](https://travis-ci.org/joshNic/Stack0verflow-lite)
 
