@@ -9,3 +9,4 @@ app/__pycache__/
 htmlcov/*
 test_pyth.py
 *.coverage
+*.cache/
