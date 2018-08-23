@@ -92,7 +92,10 @@ body
 ```
 
 # Contributors
-- [Joshua Mugisha](https: // github.com/joshNic)
+- [Joshua Mugisha](https://github.com/joshNic)
 
 # Documentation
-- The API is documented[HERE](https: // stackv1.docs.apiary.io/  # )
+- The API is documented[HERE](https://stackv1.docs.apiary.io/#)
+
+# Heroku
+- The API is hosted [HERE](https://stack-mj45.herokuapp.com)
