@@ -7,7 +7,7 @@
 - This branch contains API endpoints for the above application and tests
 
 # Tools Used
-- `Python3.4` - A High Level Programming Language
+- `Python3.6` - A High Level Programming Language
 - `Flask` - Python based web framework
 - `Pytest` - A Python testing  framework which makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries
 - `Virtualenv` - A tool to create isolated virtual environment
@@ -16,13 +16,13 @@
 To run tests run this command below in your terminal
 
 ```
-py.test - -cov-report term - -cov = tests/
+py.test - -cov-report term - -cov=app
 ```
 
 # Installation
 **Clone this _Repository_**
 ```
-$ https: // github.com/joshNic/-StackOverflow-lite.git
+$ https://github.com/joshNic/-StackOverflow-lite.git
 $ cd StackOverflow-lite
 ```
 **Create virtual environment and install it**
