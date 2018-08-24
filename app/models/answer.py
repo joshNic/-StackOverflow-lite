@@ -3,6 +3,8 @@ from .question import Question
 
 questionObject = Question()
 
+answers = []
+
 
 class Answer(object):
 
@@ -10,12 +12,11 @@ class Answer(object):
         self.answerId = None
         self.questionId = None
         self.answer_body = None
-        self.answers = []
 
     def get_answers(self, questionId):
         self.questionId = questionId
         answer = [
-            answer for answer in self.answers if answer['questionId'] ==
+            answer for answer in answers if answer['questionId'] ==
             self.questionId]
         return answer
 
@@ -24,16 +25,16 @@ class Answer(object):
         self.answer_body = answer_body
         check = questionObject.fetch_single_question(self.questionId)
         if check:
-            if not self.answers:
+            if not answers:
                 self.answerId = 1
             else:
-                self.answerId = self.answers[-1]['answerId'] + 1
+                self.answerId = answers[-1]['answerId'] + 1
             answer = {
                 'answerId': self.answerId,
                 'questionId': self.questionId,
                 'answer_body': self.answer_body
             }
-            self.answers.append(answer)
+            answers.append(answer)
             return answer
 
     # def update_answer(self):

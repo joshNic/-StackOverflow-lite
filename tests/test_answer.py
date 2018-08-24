@@ -13,11 +13,16 @@ def answerObject(scope="module"):
 @pytest.fixture
 def questionObject(scope="module"):
     questionObject = Question()
-    questionObject.questions = [{
-        'questionId': 2,
-        'title': 'what do you mean',
-        'body': 'I have no idea what you mean'
-    }]
+    questionObject.title = "What is 404 stand for"
+    questionObject.body = "What is 404 I dont understand"
+    qObject = questionObject.add_question(questionObject.title, questionObject.body)
+    yield qObject
+
+
+@pytest.fixture
+def questionObj(scope="module"):
+    questionObject = Question()
+    
     yield questionObject
 
 
@@ -28,13 +33,16 @@ def test_get_answers(answerObject):
     assert answerObject.questionId == 2
 
 
-def test_add_answer(answerObject, questionObject):
-    answerObject.questionId = 2
+def test_add_answer(answerObject, questionObject, questionObj):
+    questionObj.title = "What is 404 stand for"
+    questionObj.body = "What is 404 I dont understand"
+    answerObject.questionId = 1
     answerObject.answer_body = 'It means you mean something'
-    assert len(questionObject.fetch_single_question(
-        answerObject.questionId)) == 3
-    assert questionObject.fetch_single_question(
+    answerObject.add_answer(answerObject.questionId, answerObject.answer_body)
+    qresult = questionObj.fetch_single_question(
         answerObject.questionId)
-    with pytest.raises(HTTPException):
-        assert isinstance(answerObject.add_answer(
-            answerObject.questionId, answerObject.answer_body), dict)
+    assert len(qresult) == 3
+    assert isinstance(qresult, dict)
+    # with pytest.raises(HTTPException):
+    #     assert isinstance(answerObject.add_answer(
+    #         answerObject.questionId, answerObject.answer_body), dict)

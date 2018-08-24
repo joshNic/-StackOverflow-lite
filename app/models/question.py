@@ -1,5 +1,7 @@
 from flask import request, abort, jsonify
 
+questions = []
+
 
 class Question(object):
 
@@ -7,14 +9,13 @@ class Question(object):
         self.questionId = None
         self.title = None
         self.body = None
-        self.questions = []
 
     def fetch_all_questions(self):
-        return self.questions
+        return questions
 
     def fetch_single_question(self, questionId):
         question = [
-            question for question in self.questions if
+            question for question in questions if
             question['questionId'] == questionId]
         if len(question) == 0:
             abort(404)
@@ -25,21 +26,33 @@ class Question(object):
         self.title = title
         self.body = body
         duplicate = [
-            question for question in self.questions if question['title'] ==
+            question for question in questions if question['title'] ==
             self.title
         ]
+        if len(self.title) < 6:
+            return {'error': 'Question title can not be less than six\
+            characters'}
+        if len(self.body) < 6:
+            return {'error': 'Question body can not be less than six\
+            characters'}
+        if self.title.isdigit():
+            return {'error': 'Question format not allowed\
+            a question title can not only have numbers'}
+        if self.body.isdigit():
+            return {'error': 'Question format not allowed\
+            a question body can not only have numbers'}
         if duplicate:
             return {'error': 'Question already exists'}
-        if not self.questions:
+        if not questions:
             self.questionId = 1
         else:
-            self.questionId = self.questions[-1]['questionId'] + 1
+            self.questionId = questions[-1]['questionId'] + 1
         question = {
             'questionId': self.questionId,
             'title': self.title,
             'body': self.body
         }
-        self.questions.append(question)
+        questions.append(question)
         return question
 
     # def update_question():
