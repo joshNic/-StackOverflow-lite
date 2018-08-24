@@ -12,9 +12,9 @@ answerObject = Answer()
 app = create_app()
 
 
-@app.route('/')
-def index():
-    return redirect('https://stackv1.docs.apiary.io/#')
+# @app.route('/')
+# def index():
+#     return redirect('https://stackv1.docs.apiary.io/#')
 
 
 # return all questions endpoint

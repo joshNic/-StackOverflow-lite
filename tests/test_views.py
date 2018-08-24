@@ -17,8 +17,8 @@ def test_not_found(make_not_found):
     assert data['error'] == 'Question not found'
 
 
-def test_index(home_response):
-    assert home_response.status_code == 302
+# def test_index(home_response):
+#     assert home_response.status_code == 302
 
 
 def test_fetch_all(make_response_get_questions):
